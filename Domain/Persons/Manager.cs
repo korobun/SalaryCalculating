@@ -4,14 +4,14 @@ using System.Text;
 
 namespace AlxKor.SoftwareDevelop.Domain.Persons
 {
-    internal class Manager : Staff
+    public class Manager : Staff
     {
-        public int TotalPay { get; }
+        public decimal TotalPay { get; }
         public Manager(string name, List<TimeRecord> timeRecords) : base(name, timeRecords, 200000)
         {
             TotalPay = 0;
-            int payPerHour = Settings.ManagerSalary / Settings.HoursPerMonth;            
-            int bonusPerDay = Settings.ManagerBonus / Settings.HoursPerMonth * Settings.HoursPerDay;
+            decimal payPerHour = Settings.ManagerSalary / Settings.HoursPerMonth;            
+            decimal bonusPerDay = Settings.ManagerBonus / Settings.HoursPerMonth * Settings.HoursPerDay;
 
             foreach (var timeRecord in timeRecords)
             {
